@@ -2,6 +2,8 @@ apply plugin: 'com.android.application'
 
 def CTA_TRAIN_API_KEY = '"' + CtaTrainApiKey + '"' ?: '"Define Train Api key"';
 
+
+
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.1"
@@ -14,12 +16,14 @@ android {
         versionName "1.0"
     }
     buildTypes {
-        each {
-            type.buildConfigField 'String', 'CTA_TRAIN_API_KEY', CTA_TRAIN_API_KEY
+        debug {
+            buildConfigField 'String', 'CTA_TRAIN_API_KEY', CTA_TRAIN_API_KEY
         }
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField 'String', 'CTA_TRAIN_API_KEY', CTA_TRAIN_API_KEY
+
         }
     }
 }
