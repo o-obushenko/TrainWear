@@ -5,5 +5,5 @@ package com.oless.trainwear.network;
  */
 public class RequestModel {
 
-    public static void 
+    public static String requestArrivalForStop
 }
