@@ -5,13 +5,24 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
+
+import com.oless.trainwear.fragment.RouteListFragment;
 
 public class MainActivity extends FragmentActivity {
+
+    RouteListFragment mRouteListFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mRouteListFragment = RouteListFragment.newInstance();
+
+        getFragmentManager().beginTransaction().add(R.id.contentPanel, mRouteListFragment, "route_list").commit();
+        getFragmentManager().executePendingTransactions();
+
     }
 
     @Override

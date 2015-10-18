@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="lines">
+        <item name="red">Red Line</item>
+        <item name="blue">Blue Line</item>
+        <item name="green">Green Line</item>
+        <item name="orange">Orange Line</item>
+        <item name="yellow">Yellow Line</item>
+        <item name="purple">Purple Line</item>
+        <item name="pink">Pink Line</item>
+        <item name="brown">Brown Line</item>
+    </string-array>
+</resources>
