@@ -19,9 +19,9 @@ public class TrainStop {
             this.longitude = longitude;
         }
     }
-    @SerializedName("mapid")
+    @SerializedName("map_id")
     int mapId;
-    @SerializedName("stopid")
+    @SerializedName("stop_id")
     int stopId;
     @SerializedName("station_name")
     String stationName;
@@ -29,6 +29,8 @@ public class TrainStop {
     String stopName;
     @SerializedName("station_descriptive_name")
     String descriptiveName;
+    @SerializedName("direction_id")
+    char direction;
     PrimitiveLocation location;
     @SerializedName("blue")
     boolean isBlue;
@@ -86,6 +88,14 @@ public class TrainStop {
 
     public void setLocation(Location location) {
         this.location = new PrimitiveLocation(location.getLatitude(), location.getLongitude());
+    }
+
+    public char getDirection() {
+        return direction;
+    }
+
+    public void setDirection(char direction) {
+        this.direction = direction;
     }
 
     public String getLines() {

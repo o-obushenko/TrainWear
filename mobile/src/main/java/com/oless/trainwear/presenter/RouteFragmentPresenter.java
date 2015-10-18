@@ -62,7 +62,8 @@ public class RouteFragmentPresenter extends FragmentPresenter {
         });
     }
 
-    private Activity getHostActivity() {
+    @Override
+    Activity getHostActivity() {
         if (mFragment == null) {
             return null;
         }

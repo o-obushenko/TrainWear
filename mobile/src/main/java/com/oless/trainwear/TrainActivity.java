@@ -1,19 +1,20 @@
 package com.oless.trainwear;
 
 import android.support.v4.app.FragmentActivity;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
+import com.oless.trainwear.fragment.ArrivalFragment;
 import com.oless.trainwear.fragment.RouteListFragment;
 import com.oless.trainwear.fragment.StopListFragment;
+import com.oless.trainwear.model.TrainStop;
 
 public class TrainActivity extends FragmentActivity {
 
     RouteListFragment mRouteListFragment;
     StopListFragment mStopListFragment;
+    ArrivalFragment mArrivalFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +36,15 @@ public class TrainActivity extends FragmentActivity {
     }
 
     @Override
+    public void onBackPressed() {
+        if (getFragmentManager().getBackStackEntryCount() > 1) {
+            getFragmentManager().popBackStack();
+            return;
+        }
+        super.onBackPressed();
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
@@ -52,7 +62,20 @@ public class TrainActivity extends FragmentActivity {
     public void switchToStopList(String lineColor) {
         mStopListFragment = StopListFragment.newInstance();
         mStopListFragment.addArguments(lineColor);
-        getFragmentManager().beginTransaction().add(R.id.contentPanel, mStopListFragment, "stop_list").addToBackStack("stop-list").commit();
+        getFragmentManager()
+                .beginTransaction()
+                .replace(R.id.contentPanel, mStopListFragment, "stop_list")
+                .addToBackStack("stop-list").commit();
+        getFragmentManager().executePendingTransactions();
+    }
+
+    public void switchToArrivals(TrainStop arrivalStop) {
+        mArrivalFragment = ArrivalFragment.newInstance();
+        mArrivalFragment.addArguments(arrivalStop);
+        getFragmentManager()
+                .beginTransaction()
+                .replace(R.id.contentPanel, mArrivalFragment, "arrival")
+                .addToBackStack("arrival").commit();
         getFragmentManager().executePendingTransactions();
     }
 }

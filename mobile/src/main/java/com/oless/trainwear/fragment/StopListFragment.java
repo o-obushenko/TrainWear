@@ -38,9 +38,9 @@ public class StopListFragment extends Fragment {
         super.onCreateView(inflater, container, savedInstanceState);
         WeakReference<Activity> mActivityWeakReference = new WeakReference<>(getActivity());
         setPresenter(new StopListPresenter(this, mActivityWeakReference.get()));
+        mPresenter.addLineColor(lineColor);
         mPresenter.init();
         mView = inflater.inflate(R.layout.list_fragment, null);
-        mPresenter.addLineColor(lineColor);
         mPresenter.addListView((ListView) mView.findViewById(R.id.item_list));
         return mView;
     }
