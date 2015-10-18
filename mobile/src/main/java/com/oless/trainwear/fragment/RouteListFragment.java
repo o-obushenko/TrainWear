@@ -31,7 +31,7 @@ public class RouteListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         WeakReference<Activity> mActivityWeakReference = new WeakReference<>(getActivity());
-        setPresenter(new RouteFragmentPresenter(mActivityWeakReference.get()));
+        setPresenter(new RouteFragmentPresenter(this, mActivityWeakReference.get()));
         mPresenter.init();
         mView = inflater.inflate(R.layout.list_fragment, null);
         mPresenter.addListView((ListView) mView.findViewById(R.id.item_list));

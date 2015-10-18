@@ -12,7 +12,7 @@ import java.util.ArrayList;
  */
 public class TrainWearApplication extends Application {
 
-    private ArrayList<TrainStop> mTrainStopsList;
+    private static ArrayList<TrainStop> mTrainStopsList;
 
     @Override
     public void onCreate() {
@@ -20,7 +20,7 @@ public class TrainWearApplication extends Application {
         mTrainStopsList = ParsingUtils.parseInAllStops(this);
     }
 
-    public ArrayList<TrainStop> getAllTrainStops() {
+    public static ArrayList<TrainStop> getAllTrainStops() {
         return mTrainStopsList;
     }
 

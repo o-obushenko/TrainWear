@@ -5,8 +5,8 @@ package com.oless.trainwear.presenter;
  */
 public abstract class FragmentPresenter {
 
-    abstract void init();
-    abstract void terminate();
-    abstract boolean isInitialized();
+    public abstract void init();
+    public abstract void terminate();
+    public abstract boolean isInitialized();
 
 }

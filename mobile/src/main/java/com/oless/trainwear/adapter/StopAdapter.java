@@ -9,7 +9,6 @@ import android.widget.BaseAdapter;
  */
 public class StopAdapter extends BaseAdapter {
 
-
     @Override
     public int getCount() {
         return 0;

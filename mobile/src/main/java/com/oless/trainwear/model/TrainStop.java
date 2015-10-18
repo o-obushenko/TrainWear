@@ -88,68 +88,18 @@ public class TrainStop {
         this.location = new PrimitiveLocation(location.getLatitude(), location.getLongitude());
     }
 
-    public boolean isBlue() {
-        return isBlue;
-    }
+    public String getLines() {
+        String lines = "";
+        lines=lines.concat((isBlue ? "blue" : "") + " ");
+        lines=lines.concat((isRed ? "red" : "") + " ");
+        lines=lines.concat((isGreen ? "green" : "") + " ");
+        lines=lines.concat((isYellow ? "yellow" : "") + " ");
+        lines=lines.concat((isOrange ? "orange" : "") + " ");
+        lines=lines.concat((isPurple ? "purple" : "") + " ");
+        lines=lines.concat((isPink ? "pink" : "") + " ");
+        lines=lines.concat((isBrown ? "brown" : "") + " ");
 
-    public void setIsBlue(boolean isBlue) {
-        this.isBlue = isBlue;
-    }
-
-    public boolean isRed() {
-        return isRed;
-    }
-
-    public void setIsRed(boolean isRed) {
-        this.isRed = isRed;
-    }
-
-    public boolean isGreen() {
-        return isGreen;
-    }
-
-    public void setIsGreen(boolean isGreen) {
-        this.isGreen = isGreen;
-    }
-
-    public boolean isOrange() {
-        return isOrange;
-    }
-
-    public void setIsOrange(boolean isOrange) {
-        this.isOrange = isOrange;
-    }
-
-    public boolean isBrown() {
-        return isBrown;
-    }
-
-    public void setIsBrown(boolean isBrown) {
-        this.isBrown = isBrown;
-    }
-
-    public boolean isYellow() {
-        return isYellow;
-    }
-
-    public void setIsYellow(boolean isYellow) {
-        this.isYellow = isYellow;
-    }
-
-    public boolean isPurple() {
-        return isPurple;
-    }
-
-    public void setIsPurple(boolean isPurple) {
-        this.isPurple = isPurple;
-    }
-
-    public boolean isPink() {
-        return isPink;
-    }
-
-    public void setIsPink(boolean isPink) {
-        this.isPink = isPink;
+        return lines;
     }
 
     @Override

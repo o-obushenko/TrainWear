@@ -8,10 +8,12 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.oless.trainwear.fragment.RouteListFragment;
+import com.oless.trainwear.fragment.StopListFragment;
 
-public class MainActivity extends FragmentActivity {
+public class TrainActivity extends FragmentActivity {
 
     RouteListFragment mRouteListFragment;
+    StopListFragment mStopListFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +22,7 @@ public class MainActivity extends FragmentActivity {
 
         mRouteListFragment = RouteListFragment.newInstance();
 
-        getFragmentManager().beginTransaction().add(R.id.contentPanel, mRouteListFragment, "route_list").commit();
+        getFragmentManager().beginTransaction().add(R.id.contentPanel, mRouteListFragment, "route_list").addToBackStack("route_list").commit();
         getFragmentManager().executePendingTransactions();
 
     }
@@ -45,5 +47,12 @@ public class MainActivity extends FragmentActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void switchToStopList(String lineColor) {
+        mStopListFragment = StopListFragment.newInstance();
+        mStopListFragment.addArguments(lineColor);
+        getFragmentManager().beginTransaction().add(R.id.contentPanel, mStopListFragment, "stop_list").addToBackStack("stop-list").commit();
+        getFragmentManager().executePendingTransactions();
     }
 }
