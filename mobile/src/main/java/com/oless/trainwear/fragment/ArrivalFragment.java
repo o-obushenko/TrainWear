@@ -41,9 +41,8 @@ public class ArrivalFragment extends Fragment {
         setPresenter(new ArrivalFragmentPresenter(this, mActivityWeakReference.get()));
         mPresenter.addTrainStop(mTrainStop);
         mPresenter.init();
-        mView = inflater.inflate(R.layout.text_test_fragment, null);
-
-        mPresenter.addTextView((TextView) mView.findViewById(R.id.response_text_view));
+        mView = inflater.inflate(R.layout.list_fragment, null);
+        mPresenter.addListView((ListView) mView.findViewById(R.id.item_list));
         return mView;
     }
 

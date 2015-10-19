@@ -4,13 +4,18 @@ import android.content.Context;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+
+import com.oless.trainwear.model.Arrival;
 import com.oless.trainwear.model.TrainStop;
+
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserFactory;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.lang.reflect.Array;
+import java.io.StringReader;
 import java.util.ArrayList;
 
 /**
@@ -25,7 +30,7 @@ public class ParsingUtils {
         Gson mGson = new Gson();
 
         try {
-             InputStream mJsonInputStream= context.getAssets().open("cta_stop_db");
+             InputStream mJsonInputStream= context.getAssets().open("cta_stop_list");
             BufferedReader in=
                     new BufferedReader(new InputStreamReader(mJsonInputStream, "UTF-8"));
             String str;
