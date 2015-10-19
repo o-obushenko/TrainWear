@@ -27,11 +27,11 @@ public class ArrivalParser {
         parser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
         parser.setInput(new StringReader(mArrivalXmlString));
         parser.nextTag();
-        return readFeed(parser);
+        return readCtaTopTag(parser);
     }
 
 
-    private ArrayList<Arrival> readFeed(XmlPullParser parser) throws XmlPullParserException, IOException {
+    private ArrayList<Arrival> readCtaTopTag(XmlPullParser parser) throws XmlPullParserException, IOException {
         ArrayList<Arrival> arrivals = new ArrayList();
 
         parser.require(XmlPullParser.START_TAG, null, "ctatt");
